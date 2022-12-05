@@ -1,22 +1,23 @@
 package PageObjects;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import org.junit.Test;
 
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class FormAuthentication {
 
-    public static SelenideElement usernameForm = $(Selenide.element("#username"));
-    public static SelenideElement passwordForm = $(Selenide.element("#password"));
-    public static SelenideElement loginButton = $(Selenide.element("#login > button > i"));
-    public static SelenideElement logoutButton = $(Selenide.element("#content > div > a > i"));
-    public static SelenideElement successText = $(Selenide.element("#flash.flash.success"));
-    public static SelenideElement errorText = $(Selenide.element("#flash.flash.error"));
+    public static SelenideElement formAuthenticationUrl = $x("//*[text()=\"Form Authentication\"]");
+    public static SelenideElement usernameForm = $x("//*[@id=\"username\"]");
+    public static SelenideElement passwordForm = $x("//*[@id=\"password\"]");
+    public static SelenideElement loginButton = $x("//*[@id=\"login\"]/button");
+    public static SelenideElement logoutButton = $x("//*[text()=\" Logout\"]");
+    public static SelenideElement successText = $x("//*[@class=\"flash success\"]");
+    public static SelenideElement errorText = $x("//*[@class=\"flash error\"]");
 
     public static void successfulAuthentication() {
+        formAuthenticationUrl.click();
+        System.out.println("Перехожу на страницу с формой аутентификации");
         usernameForm.val("tomsmith");
         System.out.println("Заполняю корректный логин");
         passwordForm.val("SuperSecretPassword!");
