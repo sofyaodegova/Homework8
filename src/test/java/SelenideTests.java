@@ -47,17 +47,21 @@ public class SelenideTests {
     }
 
     @Test
-    public void keyPressesTesting() {
+    public void keyPressesText() {
         mainPage.openMainPage();
         KeyPresses.sendingText("a");
     }
 
     @Test
-    public void addRemoveTesting() {
-        SelenideElement addRemoveElements = $(Selenide.element("#content > ul > li:nth-child(2) > a"));
+    public void keyPressesSymbol() {
         mainPage.openMainPage();
-        addRemoveElements.click();
-        System.out.println("Переходим на страницу /add_remove_elements");
-        AddRemoveElements.addRemove();
+        KeyPresses.sendingSymbol("SPACE");
+    }
+
+
+    @Test
+    public void addRemoveTesting() {
+        mainPage.openMainPage();
+        AddRemoveElements.addRemove(5);
     }
 }
