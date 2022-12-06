@@ -17,7 +17,7 @@ public class AddRemoveElements {
         addRemoveElements.click();
 
         System.out.println("Переходим на страницу /add_remove_elements");
-        for (int i = 0; i <= count; i++) {
+        for (int i = 0; deleteButton.size() != count; i++) {
             addElementButton.click();
             deleteButton.get(i).shouldBe(Condition.visible);
         }
