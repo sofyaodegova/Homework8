@@ -17,13 +17,10 @@ public class AddRemoveElements {
         addRemoveElements.click();
 
         System.out.println("Переходим на страницу /add_remove_elements");
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i <= count; i++) {
             addElementButton.click();
+            deleteButton.get(i).shouldBe(Condition.visible);
         }
         System.out.println("Добавили кнопку delete " + count + " раз");
-
-        for (int j = 0; j < count; j++) {
-            deleteButton.get(j).shouldBe(Condition.visible);
-        }
     }
 }
